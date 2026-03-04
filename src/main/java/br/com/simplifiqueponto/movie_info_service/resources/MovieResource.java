@@ -15,7 +15,7 @@ import java.util.List;
 public class MovieResource {
     
     private static final List<Movie> MOVIES = Arrays.asList(
-        new Movie("1", "Inception2"),
+        new Movie("1", "Inception3"),
         new Movie("2", "The Dark Knight"),
         new Movie("3", "Interstellar"),
         new Movie("4", "The Matrix"),
