@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "Angular.ng-template-material.extension-pack",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-typescript-next",
+    "johnpapa.Angular2"
+  ]
+}

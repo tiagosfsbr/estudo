@@ -1,0 +1,53 @@
+<div class="catalog-container">
+  <!-- Seção de busca -->
+  <div class="search-section">
+    <h2>Buscar Catálogo por Usuário</h2>
+    <div class="search-form">
+      <input 
+        type="text" 
+        [(ngModel)]="userId" 
+        placeholder="Digite o ID do usuário (ex: user123)"
+        class="search-input"
+      >
+      <button 
+        (click)="loadCatalog()" 
+        [disabled]="isLoading"
+        class="search-button"
+      >
+        {{ isLoading ? 'Carregando...' : 'Buscar' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Indicador de carregamento -->
+  <div *ngIf="isLoading" class="loading">
+    <p>Carregando catálogo...</p>
+  </div>
+
+  <!-- Lista de filmes -->
+  <div *ngIf="!isLoading && catalogItems.length > 0" class="movies-container">
+    <h2>Filmes do Catálogo ({{ catalogItems.length }} filmes)</h2>
+    <div class="movies-grid">
+      <div *ngFor="let item of catalogItems" class="movie-item">
+        <div class="movie-content">
+          <h3>{{ item.name }}</h3>
+          <p class="description">{{ item.description }}</p>
+          <div class="rating">
+            {{ getStars(item.rating) }}
+            <span class="rating-value">{{ item.rating }}/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensagem quando não há filmes -->
+  <div *ngIf="!isLoading && catalogItems.length === 0 && !errorMessage" class="no-results">
+    <p>Nenhum filme encontrado. Digite um ID de usuário e clique em "Buscar".</p>
+  </div>
+</div>
